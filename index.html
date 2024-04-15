@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Flye Form</title>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+		  .container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.container button {
+         background-color: rgb(55, 133, 244);
+				 color: white;
+				 border-radius: 6px;
+				 border: none;
+				 height:25px ;
+				 box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
+			}
+
+			label {
+				margin-top: 0px;
+			}
+
+			form {
+			  margin-top: 35%;
+				justify-content: center;
+				align-items: center;
+				padding: 20px;
+				border: 1px;
+				border-color: black;
+				box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
+			}
+
+			input {
+				margin-bottom: 13px;
+				width: 300px;
+				height: 18px;
+			}
+
+			input ::placeholder{
+				font-size: 2px;
+			}
+
+			select {
+				width: 308px;
+				height: 25px;
+				margin-bottom: 13px;
+			}
+
+			button {
+				width: 308px;
+				margin-top: 30px;
+			}
+
+			.mainhd {
+				text-size-adjust: 5px;
+				font-style: bold;
+			}
+			
+			.popup {
+				width: 500px;
+				height: 400px;
+				background: beige;
+				border-radius: 6px;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -50%) scale(0.1);
+				text-align: center;
+				padding: 0 30px 30px;
+        visibility: hidden;
+				transition: transform 0.4s, top 0.4s;
+			}
+
+			#nest {
+				margin-top: 135px;
+				text-align: center;
+			}
+
+			.open-popup {
+        visibility: visible;
+				top: 50%;
+				transform:translate(-50%, -50%) scale(1) ;
+			}
+
+			.popup button  {
+				width: 200px;
+				margin-top: 50px;
+				padding: 10px 0;
+				background: rgb(157, 180, 247);
+				border: 0;
+				box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+				/* outline: none; */
+				cursor: pointer;
+			}
+
+		</style>
+	</head>
+  <body>
+		<div class="container" >
+     <form id = "resultForm">
+			
+          <label>Enter Gross Anual Income</label><br>
+					<input placeholder= "Enter Gross Anual Income" , type="number", id="ga"><br>
+			
+          <label>Enter extra Income</label><br>
+					<input placeholder= "Enter extra Income" , type="number", id="extra"><br>
+				
+          <label>Enter age group</label><br>
+					<select id="age" required>
+						<option value="none" selected disabled hidden>Select an Option</option> 
+						<option> &lt 40 </option>
+						<option> &gt= 40 & &lt 60 </option>
+						<option> &gt= 60 </option>
+					</select><br>
+				
+          <label>Enter total applicable deductions </label><br>
+					<input placeholder= "Enter total applicable deductions" , type="number",  id="deductions"><br>
+          
+					<button type="submit" onclick="openPopup()"> Submit</button>
+		 </form>
+		</div> 
+
+		<div class="popup" id="popup">
+			<div id="nest">
+				<p class="mainhd">Your overall income would be</p>
+				<div id="Totalsal"></div>
+				<p>after tax deduction</p>
+				<button type="button" onclick="closePopup()">Close</button>
+			</div>
+		</div>
+
+		<script src="app.js">
+		</script>
+	</body>	
+</html>
